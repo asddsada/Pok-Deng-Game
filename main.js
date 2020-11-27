@@ -7,10 +7,13 @@ const rl = readline.createInterface({
   output: process.stdout
 })
 
-const play = require('./lib/play');
+const initDeck = require('./lib/initDeck');
+const score = require('./lib/score');
+const shuffle = require('./lib/shuffle');
 
 var cont = true
 var total_win = 0
+var deck = []
 
 const placeBet = () => {
   return new Promise((resolve, reject) => {
@@ -40,6 +43,8 @@ const playMoreAsk = () => {
 }
 
 const main = async () => {
+  deck = initDeck()
+
   while (cont) {
     // place bet
     var bet = undefined
@@ -50,7 +55,17 @@ const main = async () => {
     }
 
     // play
-    var result = play()
+    // shuffle
+    if (deck.length < 4) { deck = initDeck() }
+    deck = shuffle(deck)
+    // draw card
+    var drawCards = deck.slice(0, 4)
+    deck = deck.slice(4)
+    console.log(`Your got ${drawCards[0]}, ${drawCards[1]}`)
+    console.log(`Dealer got ${drawCards[2]}, ${drawCards[3]}`)
+    // scoring 
+    var result = score(drawCards)
+
     if (result == 'win') {
       total_win += bet
       console.log(`You won!!! received ${bet} chips.`)
