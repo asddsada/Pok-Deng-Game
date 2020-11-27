@@ -1,0 +1,31 @@
+{
+  "name": "pok-deng-game",
+  "version": "1.0.0",
+  "description": "sckooldio backend homework",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asddsada/Pok-Deng-Game.git"
+  },
+  "keywords": [
+    "command-line",
+    "script",
+    "assignment"
+  ],
+  "author": "asddsada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asddsada/Pok-Deng-Game/issues"
+  },
+  "homepage": "https://github.com/asddsada/Pok-Deng-Game#readme",
+  "dependencies": {
+    "mathjs": "^8.0.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
