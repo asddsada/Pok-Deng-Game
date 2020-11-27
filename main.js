@@ -7,7 +7,9 @@ const rl = readline.createInterface({
   output: process.stdout
 })
 
-var play = true
+const play = require('./lib/play');
+
+var cont = true
 var total_win = 0
 
 const placeBet = () => {
@@ -38,28 +40,36 @@ const playMoreAsk = () => {
 }
 
 const main = async () => {
-  while (play) {
+  while (cont) {
     // place bet
     var bet = await placeBet().catch(error => {
       console.error(error)
     })
 
     // play
-    console.log('play')
-    var win = bet
-
-    // update total win
-    console.log('update')
-    total_win += bet
+    var result = play()
+    if(result=='win'){
+      total_win += bet
+      console.log(`You won!!! received ${bet} chips.`)
+    }else if(result=='tie'){
+      console.log(`A tie, no chips loss.`)
+    }else if(result=='loss'){
+      total_win -= bet
+      console.log(`You loss, loss ${bet} chips.`)
+    }
 
     // play more ask
-    play = await playMoreAsk().catch(error => {
+    cont = await playMoreAsk().catch(error => {
       console.error(error)
     })
   }
 
   // show total win
-  console.log('You got total '+total_win+' chip(s)')
+  if(total_win>=0){
+    console.log(`You got total ${total_win} chip(s).`)
+  }else{
+    console.log(`You loss total ${total_win*(-1)} chip(s).`)
+  }
   rl.close()
 }
 

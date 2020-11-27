@@ -22,5 +22,7 @@
     "url": "https://github.com/asddsada/Pok-Deng-Game/issues"
   },
   "homepage": "https://github.com/asddsada/Pok-Deng-Game#readme",
-  "dependencies": {}
+  "dependencies": {
+    "mathjs": "^8.0.1"
+  }
 }
