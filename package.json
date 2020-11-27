@@ -4,6 +4,7 @@
   "description": "sckooldio backend homework",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "jest"
   },
   "repository": {
@@ -20,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/asddsada/Pok-Deng-Game/issues"
   },
-  "homepage": "https://github.com/asddsada/Pok-Deng-Game#readme"
+  "homepage": "https://github.com/asddsada/Pok-Deng-Game#readme",
+  "dependencies": {}
 }
