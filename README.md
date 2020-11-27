@@ -20,6 +20,8 @@ Skooldio Backend Homework
     # example
     # Please put your bet
     # $ 5
+    # You got Clubs-King, Hearts-9
+    # The dealer got Spades-4, Spades-4
     # You won!!!, received 5 chips
     # Wanna play more (Yes/No)?
     # $ No
